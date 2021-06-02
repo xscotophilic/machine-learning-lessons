@@ -26,7 +26,7 @@ There are three sorts of nodes in this tree-structured classifier. The Root Node
 
 - Some of the other methods: We may readily state that data is segmented, but have we ever considered how and why this occurs? The solution to this question can be found in two key concepts: information entropy (E) and information gain (I) (IG).
 
-- You can read about `How to split the data at several points` in details on provided links:
+- You can read about `Decision Tree Regression` in details on provided links:
 
   - [Machine Learning: Decision Tree Regression on medium.com](https://medium.com/analytics-vidhya/machine-learning-decision-tree-regression-ff8563ffaf52)
 
