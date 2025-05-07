@@ -1,31 +1,49 @@
 # Support Vector Regression (SVR)
 
-### In most Linear regression models & Polynomial regression models, the objective is to minimize the sum of squared errors.
+> Support Vector Regression (SVR) is a powerful regression technique that leverages the principles of Support Vector Machines to predict continuous values, allowing for flexible error margins and robust performance on non-linear data.
 
-### Support Vector Regression (SVR) gives us the flexibility to define how much error is acceptable in our model and will find an appropriate line (or hyperplane in higher dimensions) to fit the data.
+## Table of Contents
+- [Overview](#overview)
+- [Key Terminology](#key-terminology)
+- [How SVR Works](#how-svr-works)
+- [Visualization](#visualization)
+- [Further Reading](#further-reading)
 
-- First, let's define certain terms.
+## Overview
 
-  1. Kernel: A function for converting lower-dimensional data to higher-dimensional data.
+In most linear and polynomial regression models, the objective is to minimize the sum of squared errors. SVR, however, introduces the concept of an acceptable error margin (epsilon), seeking a function that fits the data within this margin and is as flat as possible. This makes SVR especially useful for datasets where some error tolerance is acceptable and for capturing non-linear relationships using kernel tricks.
 
-  2. Hyper Plane: In SVM, this is essentially the line that separates the data classes. Although, in SVR, it will be defined as a line that will assist us in predicting a continuous value or a target value.
+## Key Terminology
 
-  3. Boundary lines: Other than the Hyper Plane, there are two lines in SVM that form a margin. The support vectors might be inside or outside the boundary lines. The two classes are separated by this line. The premise is the same in SVR.
+1. **Kernel**: A function that transforms data into higher dimensions to make it possible to perform linear separation or regression in that space.
+2. **Hyperplane**: In SVM, this is the decision boundary; in SVR, it is the regression line (or surface) that predicts the target value.
+3. **Boundary Lines (Margins)**: Two lines that define the margin of tolerance (epsilon) within which errors are ignored by the model.
+4. **Support Vectors**: Data points closest to the margin boundaries. These points are critical in defining the position and orientation of the hyperplane.
 
-  4. Support vectors: The data points closest to the boundary are called support vectors. The distance between the points is minimal or negligible.
+## How SVR Works
+
+- The SVR algorithm tries to fit the best line (or hyperplane) within a predefined margin of tolerance (epsilon) from the actual data points.
+- Only the data points that fall outside this margin (the support vectors) influence the model.
+- By using different kernels (e.g., linear, polynomial, RBF), SVR can model both linear and non-linear relationships.
+
+## Visualization
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/47301282/120436365-79295b00-c39c-11eb-8b44-f697a60b13b3.png" />
+    <img src="readme_assets/svr_hyperplane_margin.png" alt="SVR Hyperplane and Margins" />
 </p>
 
-- Blue line: Hyper Plane; Red Line: Boundary Line; Green Dots: Given Data
+- **Blue line**: Hyperplane (regression line)
+- **Red lines**: Margin boundaries (epsilon)
+- **Green dots**: Data points
 
-- How all the points are within the boundary line(Red Line). When we're working with SVR, our goal is to think about the points that are within the boundary line. The line hyperplane with the greatest number of points is our best fit line.
+All points within the red boundary lines are considered within the acceptable error margin. The best-fit line is the one that maximizes the number of points within this margin while remaining as flat as possible.
 
-#### For Aditional Reading:
+**Mathematical Intuition:**
+- SVR tries to fit a function $f(x)$ so that most data points fall within a tube of width $2\epsilon$ around it.
+- Only points outside this tube (support vectors) affect the model.
+- Kernel functions allow SVR to fit nonlinear relationships by mapping data to higher dimensions.
 
-Chapter 4 - Support Vector Regression
+## Further Reading
 
-[from: Efficient Learning Machines: Theories, Concepts, and Applications for Engineers and System Designers](https://github.com/xscotophilic/Machine-Learning-Basic-Lessons/files/6582436/Support.Vector.Regression.pdf)
-
-By Mariette Awad & Rahul Khanna (2015)
+- Chapter 4: Support Vector Regression, from *Efficient Learning Machines: Theories, Concepts, and Applications for Engineers and System Designers* by Mariette Awad & Rahul Khanna (2015) [[PDF]](readme_assets/support_vector_regression.pdf)
+- [scikit-learn: SVR Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html)

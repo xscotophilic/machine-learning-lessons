@@ -1,34 +1,43 @@
 # K-Means Clustering
 
-* K-Means Clustering is an Unsupervised Learning algorithm, which groups the unlabeled dataset into different clusters.
+## Table of Contents
 
-* K denotes the number of pre-defined clusters that will be generated during the process; for example, if K=2, there will be two clusters.
+- [Overview](#overview)
+- [Algorithm Steps](#algorithm-steps)
+- [Code Example](#code-example)
+- [When to Stop?](#when-to-stop)
+- [Further Reading](#further-reading)
 
-<img src="KMC0.png" />
+## Overview
 
-* Algorithm:
-1. Select the k values, called centroids or means. (eg. K = 2)
-2. Initialize the centroids. (Check the figure below)
-<img src="KMC2.png" />
-3. We categorize each item to its closest centroid(mean). (Check the figure below)
-<img src="KMC3.png" />
-4. Compute and place the new centroid of each cluster. (Centroid will take place in center of categorized cluster data.) (Check the figure below)
-<img src="KMC4.png" />
-5. Reassign each data point to the new closest centroid. If any reassignment took place, go to STEP 4. otherwise exit. (Check the figure below)
-<img src="KMC5.png" />
+K-Means Clustering is an unsupervised learning algorithm that partitions a dataset into **K** distinct, non-overlapping clusters. Each cluster is defined by its centroid (mean), and each data point is assigned to the cluster with the nearest centroid.
 
-* When to stop?
-1. If there is no change in centroids values because the clustering has been successful.
-2. The defined number of iterations has been achieved.
+- **K**: The number of clusters to form, specified in advance (e.g., K=2 creates two clusters).
 
-### You can read about K-Means Clustering in details on provided links: 
+![K-Means Algorithm Overview](readme_assets/algorithm_overview.png)
 
-* [Understanding K-means Clustering in Machine Learning - on towardsdatascience.com](https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1)
+## Algorithm Steps
 
-* [K means Clustering – Introduction - on geeksforgeeks](https://www.geeksforgeeks.org/k-means-clustering-introduction/)
+1. **Select the number of clusters (K)** and initialize centroids.
+   ![Centroid Initialization](readme_assets/centroid_initialization.png)
+2. **Assign each data point to the nearest centroid.**
+   ![Assignment Step](readme_assets/assignment_step.png)
+3. **Update centroids** by calculating the mean of all points assigned to each cluster.
+   ![Centroid Update](readme_assets/centroid_update.png)
+4. **Repeat assignment and update steps** until convergence (no change in assignments or centroids).
+   ![Final Assignment](readme_assets/final_assignment.png)
 
----
+**Mathematical Intuition:**
 
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
+- The algorithm minimizes the sum of squared distances between each point and its assigned centroid.
+- The objective function is: $\sum_{i=1}^K \sum_{x \in C_i} ||x - \mu_i||^2$, where $C_i$ is the set of points in cluster $i$ and $\mu_i$ is the centroid.
 
-### Thank You!
+## When to Stop?
+
+- When centroids do not change between iterations (convergence).
+- When a maximum number of iterations is reached.
+
+## Further Reading
+
+- [Understanding K-means Clustering in Machine Learning – towardsdatascience.com](https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1)
+- [K-means Clustering – Introduction – geeksforgeeks](https://www.geeksforgeeks.org/k-means-clustering-introduction/)

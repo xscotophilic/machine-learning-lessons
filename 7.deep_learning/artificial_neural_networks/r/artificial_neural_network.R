@@ -72,5 +72,10 @@ y_pred <- as.vector(y_pred)
 cm <- table(test_set[, 11], y_pred)
 acc_score <- (cm["0", "0"]+cm["1", "1"])/(cm["0", "0"]+cm["0", "1"]+cm["1", "0"]+cm["1", "1"])
 
+print("Confusion Matrix:")
+print(cm)
+
+print(paste("Accuracy Score:", round(acc_score, 4)))
+
 # shutting down the h2o
 h2o.shutdown()

@@ -56,7 +56,7 @@ no_of_clusters = 5 # 5 is optimal no of clusters as you can see in graph
 # Training the Hierarchical clustering model on dataset
 
 from sklearn.cluster import AgglomerativeClustering
-hc = AgglomerativeClustering(n_clusters = 5, affinity = 'euclidean', linkage = 'ward')
+hc = AgglomerativeClustering(n_clusters = 5, metric = 'euclidean', linkage = 'ward')
 y_hc =  hc.fit_predict(X) # 5 is optimal no of clusters as you can see in graph
 
 # ---------------------------------------------------

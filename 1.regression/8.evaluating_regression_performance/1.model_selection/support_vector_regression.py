@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('ENTER_THE_NAME_OF_YOUR_DATASET_HERE.csv')
+dataset = pd.read_csv('data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 y = y.reshape(len(y),1)
@@ -25,10 +25,12 @@ y_train = sc_y.fit_transform(y_train)
 # Training the SVR model on the Training set
 from sklearn.svm import SVR
 regressor = SVR(kernel = 'rbf')
-regressor.fit(X_train, y_train)
+regressor.fit(X_train, y_train.ravel())
 
 # Predicting the Test set results
-y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(X_test)))
+y_pred = sc_y.inverse_transform(
+    regressor.predict(sc_X.transform(X_test)).reshape(-1, 1)
+)
 np.set_printoptions(precision=2)
 print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 

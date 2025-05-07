@@ -49,7 +49,7 @@ regressor.fit(X_train, y_train)
 
 # ---------------------------------------------------
 # Predicting the values
-y_pred = sc_y.inverse_transform(regressor.predict(X_test))
+y_pred = sc_y.inverse_transform(regressor.predict(X_test).reshape(-1, 1))
 
 # ---------------------------------------------------
 # Graph for Decision Tree Regression
@@ -58,12 +58,16 @@ y_pred = sc_y.inverse_transform(regressor.predict(X_test))
 # BLUE DOTS REPRESENTS THE REGRESSION LINE
 
 # smoothing the curve
-X_train_grid = np.arange(min(X_train), max(X_train), 0.1)
+X_train_grid = np.arange(X_train.min(), X_train.max(), 0.1)
 X_train_grid = X_train_grid.reshape(len(X_train_grid), 1)
 
 plt.scatter(sc_X.inverse_transform(X_train), sc_y.inverse_transform(y_train), color = 'green')
 plt.scatter(sc_X.inverse_transform(X_test), y_pred, color = 'red')
-plt.plot(sc_X.inverse_transform(X_train_grid), sc_y.inverse_transform(regressor.predict(X_train_grid)), color = 'blue')
+plt.plot(
+    sc_X.inverse_transform(X_train_grid),
+    sc_y.inverse_transform(regressor.predict(X_train_grid).reshape(-1, 1)),
+    color = 'blue'
+)
 plt.title('Position vs Salary (Decision Tree Regression)')
 plt.xlabel('Position Level')
 plt.ylabel('Salary')

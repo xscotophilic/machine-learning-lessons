@@ -1,43 +1,53 @@
 # Upper Confidence Bound (UCB)
-### Multi-Armed Bandit Problem
-  - <img src="UCB0.png" width="300"/>
-  - The image above depicts a two-lever slot machine, also known as a bandit. We assume that each lever has its own reward distribution and that there is at least one lever that generates the highest reward.
-  - The goal here is to figure out which lever to pull to get the highest reward after a set of trials.
 
-- Exploration vs Exploitation:
-  - Greedy Action: When an agent chooses the action with the highest estimated value at the time. By selecting the greedy action, the agent exploits its current knowledge.
-  - Non-Greedy Action: When the agent does not choose the highest estimated value and foregoes immediate gratification in order to learn more about the other actions.
-  - Exploration: It allows the agent to learn more about each action. Hopefully, this will result in long-term benefits.
-  - Exploitation: It enables the agent to choose the greedy action in order to obtain the greatest reward for the shortest period of time. A greedy action selection can result in suboptimal behavior.
+> **UCB** is a classic algorithm for solving the Multi-Armed Bandit problem, balancing exploration and exploitation using the principle of optimism in the face of uncertainty.
 
----
+## Table of Contents
 
-### Upper Confidence Bound (UCB)
+- [Overview](#overview)
+- [Exploration vs Exploitation](#exploration-vs-exploitation)
+- [Algorithm Steps](#algorithm-steps)
+- [Visualizations](#visualizations)
+- [Further Reading](#further-reading)
 
-- Upper Confidence Bound Algorithm tells which option to choose when multiple options are available.
-- The Upper Confidence Bound follows the principle of optimism in the face of uncertainty which implies that if we are uncertain about an action, we should optimistically assume that it is the correct action.
+## Overview
 
-- Action-value Estimate:
-  - We'll use the sample-average method to estimate the value of selecting an action because the agent doesn't know what it's worth.
-  - <img src="UCB1.png" width="600"/>
+The Multi-Armed Bandit problem models a scenario where an agent must choose between multiple options (slot machine levers), each with an unknown reward distribution, to maximize total reward over time.
 
-- Upper Confidence Bound Action Selection:
-  - Upper-Confidence Bound action selection balances exploration and exploitation by using uncertainty in action-value estimates.
-  - <img src="UCB2.png" width="600"/>
+## Exploration vs Exploitation
 
-- How action is selected
-  - For example, let’s say we have these four actions with associated uncertainties.
-  - So according to the UCB algorithm, it will optimistically pick the action that has the highest upper bound i.e. A.
-  - Assume that after performing action A, we find ourselves in a bad situation.
-  - UCB will choose action B this time because Q(B) has the highest upper-confidence even though the confidence interval is small.
-  - And algorithm stops when it finds a goal state.
+- **Greedy Action:** Selects the action with the highest estimated value (exploitation).
+- **Non-Greedy Action:** Selects other actions to learn more about their rewards (exploration).
+- **Exploration:** Helps the agent discover potentially better actions.
+- **Exploitation:** Focuses on maximizing immediate reward based on current knowledge.
 
-### You can read about Upper Confidence Bound in details on provided links: 
+## Algorithm Steps
 
-* [Upper Confidence Bound Algorithm in Reinforcement Learning - on geeksforgeeks](https://www.geeksforgeeks.org/upper-confidence-bound-algorithm-in-reinforcement-learning/)
+1. For each action, keep track of the number of times it has been selected and its average reward.
+2. At each round, calculate the upper confidence bound for each action:
+   - UCB = average reward + confidence interval (uncertainty term)
+3. Select the action with the highest UCB value.
+4. Update the statistics for the selected action based on the observed reward.
+5. Repeat for the desired number of rounds.
 
----
+**Mathematical Intuition:**
+- UCB selects actions based on both their estimated value and an uncertainty term, encouraging exploration of less-tried options.
+- The confidence bound grows smaller as an action is tried more, balancing exploration and exploitation mathematically.
 
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
+## Visualizations
 
-### Thank You!
+![Bandit Machine](readme_assets/ucb_bandit_machine.png)
+
+*The image above depicts a two-lever slot machine (bandit). Each lever has its own reward distribution. The goal is to identify the lever with the highest expected reward.*
+
+![Action-Value Estimate](readme_assets/ucb_action_value_estimate.png)
+
+*Sample-average method for estimating action values.*
+
+![UCB Action Selection](readme_assets/ucb_action_selection.png)
+
+*UCB action selection balances exploration and exploitation by considering uncertainty in action-value estimates.*
+
+## Further Reading
+
+- [Upper Confidence Bound Algorithm in Reinforcement Learning – GeeksforGeeks](https://www.geeksforgeeks.org/upper-confidence-bound-algorithm-in-reinforcement-learning/)

@@ -1,28 +1,47 @@
 # Polynomial Regression
 
-- The linear regression sometimes cannot capture patterns in the data. This is an instance of insufficiency.
+> Polynomial regression extends linear regression by modeling the relationship between the independent variable(s) and the dependent variable as an nth degree polynomial. This allows the model to capture non-linear patterns in the data.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Polynomial Expression](#polynomial-expression)
+- [Model Fitting Example](#model-fitting-example)
+- [Model Comparison](#model-comparison)
+- [Further Reading](#further-reading)
+
+## Overview
+
+Linear regression sometimes cannot capture complex patterns in data, leading to underfitting. To address this, we can increase the model's complexity by introducing polynomial features—powers of the original features—enabling the model to fit a higher-order equation.
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/47301282/120290753-43bf3780-c2e0-11eb-8c9a-8134a78583d4.png" />
+    <img src="readme_assets/polynomial_regression_insufficiency.png" alt="Linear Regression Insufficiency" width="500"/>
 </p>
 
-- We need to enhance the complexity of the model to overcome inadequate adaptability. We can add powers of the original features as additional features to build a higher order equation.
+## Polynomial Expression
 
-- Polynomial Expression:
+A polynomial regression model of degree *n* can be expressed as:
+
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/47301282/120290757-4457ce00-c2e0-11eb-84b5-9af905a72ef5.png" />
+    <img src="readme_assets/polynomial_regression_equation.png" alt="Polynomial Regression Equation" width="400"/>
 </p>
 
-- Fitting a Polynomial (degree = 2)
+## Model Fitting Example
+
+Fitting a polynomial regression model (degree = 2):
+
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/47301282/120290764-4588fb00-c2e0-11eb-96d7-7569dbf6d756.png" />
+    <img src="readme_assets/polynomial_regression_fit_degree2.png" alt="Polynomial Regression Fit (Degree 2)" width="400"/>
 </p>
 
-- comparing fitting of models with different degrees
+## Model Comparison
+
+Comparing the fit of models with different polynomial degrees:
+
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/47301282/120290746-428e0a80-c2e0-11eb-994a-40a76199bcff.png" />
+    <img src="readme_assets/polynomial_regression_degree_comparison.png" alt="Polynomial Regression Degree Comparison" width="500"/>
 </p>
 
-- You can read about Polynomial Regression in details on provided links:
+## Further Reading
 
-  - [Polynomial Regression](https://towardsdatascience.com/polynomial-regression-bbe8b9d97491)
+- [Polynomial Regression — Towards Data Science](https://towardsdatascience.com/polynomial-regression-bbe8b9d97491)

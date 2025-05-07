@@ -81,8 +81,12 @@ classifier.fit(X_train, y_train)
 y_pred = classifier.predict(X_test)
 
 # ---------------------------------------------------
-# Creating Confusion Matrix
+# Creating Confusion Matrix and Accuracy
 from sklearn.metrics import confusion_matrix, accuracy_score
+
 cm = confusion_matrix(y_test, y_pred)
 acc_scr = accuracy_score(y_test, y_pred)
-# check cm and acc_score
+
+print("Confusion Matrix:")
+print(cm)
+print(f"\nAccuracy: {acc_scr * 100:.2f}%")

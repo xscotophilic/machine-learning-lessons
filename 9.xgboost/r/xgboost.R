@@ -32,6 +32,10 @@ y_pred = (y_pred >= 0.5)
 # Making the Confusion Matrix
 cm = table(test_set[, 11], y_pred)
 
+# Print Confusion Matrix
+print("Confusion Matrix:")
+print(cm)
+
 # Applying k-Fold Cross Validation
 # install.packages('caret')
 library(caret)
@@ -47,3 +51,8 @@ cv = lapply(folds, function(x) {
   return(accuracy)
 })
 accuracy = mean(as.numeric(cv))
+std_dev = sd(as.numeric(cv))
+
+# Print Accuracy and Standard Deviation
+cat(sprintf("Accuracy: %.2f %%\n", accuracy * 100))
+cat(sprintf("Standard Deviation: %.2f %%\n", std_dev * 100))

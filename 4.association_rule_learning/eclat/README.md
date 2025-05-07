@@ -1,22 +1,34 @@
-# ECLAT
+# ECLAT Algorithm
 
-### The ECLAT algorithm stands for Equivalence Class Clustering and bottom-up Lattice Traversal.
+> **ECLAT** stands for *Equivalence Class Clustering and bottom-up Lattice Traversal*.
 
-- ECLAT algorithm works in a vertical manner just like the Depth-First Search of a graph.
-- The basic idea is to use Transaction Id Sets(tidsets) intersections to compute the support value of a candidate and avoiding the generation of subsets which do not exist in the prefix tree.
+## Table of Contents
 
-<img src="eclat0.png" />
+- [Overview](#overview)
+- [Algorithm Steps](#algorithm-steps)
+- [Visualization](#visualization)
+- [Further Reading](#further-reading)
 
-- Starting with node a, for example, the algorithm can count its support to see if it is frequent. If this is the case, the algorithm progresses to the next stage of nodes, such as ab, abc, and so on, until an infrequent node, such as abcd, is reached. It then returns to a previous branch, say abce, and resumes the quest from there.
+## Overview
 
-### You can read about Apriori Algorithm in details on provided links: 
+ECLAT is a fast algorithm for mining frequent itemsets and association rules, working in a vertical data format. Unlike Apriori, ECLAT uses transaction ID sets (tidsets) and set intersections to efficiently compute support, traversing the itemset lattice in a depth-first manner.
 
-- [Association Rule Mining using ECLAT Algorithm - on medium](https://medium.com/machine-learning-and-artificial-intelligence/3-4-association-rule-mining-using-eclat-algorithm-b6e50aab2147)
+## Algorithm Steps
 
-- [ML | ECLAT Algorithm - on geeksforgeeks](https://www.geeksforgeeks.org/ml-eclat-algorithm/#:~:text=The%20ECLAT%20algorithm%20stands%20for,version%20of%20the%20Apriori%20algorithm.)
+- Start with single items and their tidsets.
+- Recursively intersect tidsets to generate candidate itemsets and compute their support.
+- Prune itemsets that do not meet the minimum support threshold.
+- Continue depth-first traversal until no further frequent itemsets can be found.
 
----
+**Mathematical Intuition:**
+- Represents itemsets as sets of transaction IDs (tidsets).
+- Finds frequent itemsets by intersecting tidsets, which is computationally efficient for dense datasets.
 
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
+## Visualization
 
-### Thank You!
+![ECLAT Algorithm Example](readme_assets/eclat_algorithm_example.png)
+
+## Further Reading
+
+- [Association Rule Mining using ECLAT Algorithm – Medium](https://medium.com/machine-learning-and-artificial-intelligence/3-4-association-rule-mining-using-eclat-algorithm-b6e50aab2147)
+- [ML | ECLAT Algorithm – GeeksforGeeks](https://www.geeksforgeeks.org/ml-eclat-algorithm/#:~:text=The%20ECLAT%20algorithm%20stands%20for,version%20of%20the%20Apriori%20algorithm.)

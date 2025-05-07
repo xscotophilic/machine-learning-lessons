@@ -1,28 +1,58 @@
-# Reinforcement learning
+# Reinforcement Learning
 
-- Reinforcement learning is all about making decisions sequentially. In simple terms, the output is determined by the current input's state, and the next input is determined by the previous input's output.
+> Reinforcement Learning (RL) is a type of machine learning where an agent learns to make decisions by interacting with an environment to maximize cumulative reward.
 
-- We have seen supervised learning before. In supervised learning, the initial input or the input given at the start is used to make a decision.
+## Table of Contents
 
-- Main points in Reinforcement learning
-  - Input: The input should be an initial state from which the model will start
-  -  Output: There are many possible output as there are variety of solution to a particular problem
-  - Training: The training is based upon the input, The model will return a state and the user will decide to reward or punish the model based on its output.
-  - The model keeps continues to learn.
-  - The best solution is decided based on the maximum reward.
+- [Overview](#overview)
+- [Key Terminologies](#key-terminologies)
+- [How It Works](#how-it-works)
+- [Popular Algorithms](#popular-algorithms)
+- [Example](#example)
+- [Further Reading](#further-reading)
 
-- As an Example:
-  - <img src="RL0.png" />
-  - Your cat is an agent that is in contact with the environment. It is your home in this case. A state could be that your cat is sitting and you use a specific word in for cat to walk.
-  - Our agent responds by executing an action transition from one "state" to another.
-  - For example, your cat may transition from sitting to walking.
-  - An agent's reaction is an action, and policy is a method of selecting an action given a state in the hope of better outcomes.
-  - They may receive a reward or a penalty as a result of the transition.
-### You can read about Reinforcement learning in details on provided links: 
+## Overview
 
-* [Reinforcement learning - on geeksforgeeks](https://www.geeksforgeeks.org/what-is-reinforcement-learning/)
+Reinforcement learning is about learning what to do—how to map situations to actions—so as to maximize a numerical reward signal. The agent learns by trial and error, receiving feedback from its own actions and experiences.
 
----
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
+**Use Cases:**
+- Game playing (e.g., AlphaGo, chess, video games)
+- Robotics (learning to walk, grasp, or navigate)
+- Dynamic pricing and recommendation systems
 
-### Thank You!
+![Reinforcement Learning Example](readme_assets/rl_agent_environment.png)
+
+## Key Terminologies
+
+- **Agent**: The learner or decision maker (e.g., a robot, software, or animal).
+- **Environment**: The world the agent interacts with.
+- **State**: The current situation of the agent.
+- **Action**: Choices made by the agent.
+- **Reward**: Feedback from the environment.
+- **Policy**: The strategy used by the agent to determine actions.
+
+**Mathematical Intuition:**
+- The agent seeks to maximize the expected sum of rewards over time, often using algorithms like Q-learning or policy gradients.
+- The process is modeled as a Markov Decision Process (MDP), with states, actions, rewards, and transitions.
+
+## How It Works
+
+1. The agent observes the current state.
+2. It selects and performs an action.
+3. The environment responds with a new state and a reward.
+4. The agent updates its knowledge and repeats the process.
+
+The goal is to learn a policy that maximizes the total reward over time.
+
+## Popular Algorithms
+
+- **Upper Confidence Bound (UCB)** ([see details](upper_confidence_bound/README.md))
+- **Thompson Sampling** ([see details](thompson_sampling/README.md))
+
+## Example
+
+A cat (agent) in a home (environment) learns to walk (action) when you use a specific word (state), and gets a treat (reward) for doing so. Over time, the cat learns which actions yield the best rewards.
+
+## Further Reading
+
+- [Reinforcement Learning – GeeksforGeeks](https://www.geeksforgeeks.org/what-is-reinforcement-learning/)

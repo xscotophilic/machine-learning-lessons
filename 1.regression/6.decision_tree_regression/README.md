@@ -1,35 +1,48 @@
 # Decision Tree Regression
 
-## Decision Tree Regression is used when we are trying to predict an output variable that is continuous.
+> Decision Tree Regression is used when we are trying to predict an output variable that is continuous.
 
-- Let’s look at a very simple decision tree. Below is a workflow that can be used to make a decision on whether or not to eat a peanut butter cookie.
+## Table of Contents
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/47301282/120511899-781e1b00-c3e8-11eb-866a-2ca6ab9cda8c.jpeg" />
-</p>
+- [Overview](#overview)
+- [How Decision Trees Work](#how-decision-trees-work)
+- [Visual Examples](#visual-examples)
+- [How Splitting Works](#how-splitting-works)
+- [Further Reading](#further-reading)
 
-- A decision tree can detect the fact that you should only eat the cookie if specific criteria are met in this case. A decision tree's ultimate purpose is to achieve this. We want to keep making decisions (splits) until we meet certain requirements. We can utilise it to classify or predict once we've encountered it.
+## Overview
 
-- This is a very simple example with only two variables ( allergy, ruining dinner). However, how do you pick which variables/columns to split on if you have a dataset with thousands of variables/columns? Entropy and information gain are a popular technique to overcome this problem, especially when utilising an ID3 algorithm.
+Decision Tree Regression is a non-parametric supervised learning method used for predicting continuous values. It works by splitting the data into subsets based on feature values, recursively, to minimize prediction error.
 
-<p align="justify">
-There are three sorts of nodes in this tree-structured classifier. The Root Node is the first node in the graph, and it represents the complete sample. It can be further divided into nodes. The features of a data collection are represented by the interior nodes, while the decision rules are represented by the branches. Finally, the outcome is represented by the Leaf Nodes.
-</p>
+## How Decision Trees Work
 
-<p align="center">
-    <img src="https://user-images.githubusercontent.com/47301282/120511999-8ec47200-c3e8-11eb-9a7a-7775ce3c2972.png" />
-</p>
+A decision tree makes decisions (splits) based on input features until certain criteria are met. For example, consider a simple decision tree for deciding whether to eat a peanut butter cookie:
 
-- In a regression tree, a regression model is fit to the target variable using each of the independent variables. The data is then split at several points for each independent variable.
+<div align="center">
+  <img src="readme_assets/decision_tree_cookie_example.jpeg" alt="Peanut Butter Cookie Decision Tree"/>
+</div>
 
-- At those points, the error between the predicted values and actual values is squared to get “A Sum of Squared Errors”(SSE). The point that has lowest SSE is chosen as the split point. This process is continued recursively.
+- The tree splits on variables (e.g., allergy, ruining dinner) to reach a decision.
+- In real datasets with many variables, algorithms like ID3 use entropy and information gain to choose the best splits.
 
-- Some of the other methods: We may readily state that data is segmented, but have we ever considered how and why this occurs? The solution to this question can be found in two key concepts: information entropy (E) and information gain (I) (IG).
+There are three types of nodes in a decision tree:
+- **Root Node**: Represents the entire dataset.
+- **Internal Nodes**: Represent features and decision rules.
+- **Leaf Nodes**: Represent outcomes.
 
-- You can read about `Decision Tree Regression` in details on provided links:
+<div align="center">
+  <img src="readme_assets/decision_tree_structure.png" alt="Decision Tree Structure" width="400"/>
+</div>
 
-  - [Machine Learning: Decision Tree Regression on medium.com](https://medium.com/analytics-vidhya/machine-learning-decision-tree-regression-ff8563ffaf52)
+## How Splitting Works
 
-  - [Entropy and Information Gain on TDS](https://towardsdatascience.com/entropy-and-information-gain-b738ca8abd2a)
+- For regression, the tree fits a model to the target variable using each independent variable.
+- It splits the data at points that minimize the sum of squared errors (SSE).
+- The process continues recursively, always choosing the split with the lowest SSE.
+- Concepts like **information entropy** and **information gain** are key to understanding how splits are chosen.
 
-  - [Entropy and Information Gain in Decision Trees on TDS](https://towardsdatascience.com/entropy-and-information-gain-in-decision-trees-c7db67a3a293)
+## Further Reading
+
+- [Machine Learning: Decision Tree Regression (Medium)](https://medium.com/analytics-vidhya/machine-learning-decision-tree-regression-ff8563ffaf52)
+- [Entropy and Information Gain (TDS)](https://towardsdatascience.com/decision-trees-explained-entropy-information-gain-gini-index-ccp-pruning-4d78070db36c)
+- [Entropy and Information Gain in Decision Trees (TDS)](https://towardsdatascience.com/entropy-and-information-gain-in-decision-trees-c7db67a3a293)

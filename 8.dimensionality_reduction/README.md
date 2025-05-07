@@ -1,28 +1,42 @@
-# ML Dimensionality Reduction
+# Dimensionality Reduction
 
-> The method of reducing the dimension of your feature set is known as dimensionality reduction. Your feature set may be a hundred-column dataset (i.e features).
+> Dimensionality reduction is the process of reducing the number of input variables (features) in a dataset, making data easier to visualize and models less prone to overfitting.
 
-- Why would we drop features (columns)?
-  - The Curse of Dimensionality :
-  - The more features there are, the more difficult it is to visualize the training set and then work on it.
-  - The model becomes more complex as the number of features increases. Overfitting is more likely as the number of features increases, resulting in poor output on real data. 
+## Table of Contents
 
-- Feature selection is the process of identifying and selecting relevant features for your sample. Feature selection can be done either manually or programmatically. Feature selection is the simplest of dimensionality reduction methods.
+- [Overview](#overview)
+- [Key Terminologies](#key-terminologies)
+- [Types of Dimensionality Reduction](#types-of-dimensionality-reduction)
+- [Further Reading](#further-reading)
 
-- Linear Dimensionality Reduction Methods
-  1. Principal Component Analysis (PCA)
-  2. Linear Discriminant Analysis (LDA)
-  3. Factor Analysis
-  4. etc.
+## Overview
 
-- Non-linear Dimensionality Reduction Methods
-  1. Kernel PCA 
-  2. Multi-dimensional scaling (MDS)
-  3. Isometric Feature Mapping (Isomap)
-  4.  etc.
+High-dimensional data can be difficult to analyze and visualize. Dimensionality reduction techniques help simplify data, improve model performance, and reduce computational cost.
 
-  ---
+**Use Cases:**
+- Data visualization (e.g., plotting high-dimensional data in 2D)
+- Noise reduction
+- Preprocessing for machine learning models
 
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
+## Key Terminologies
 
-### Thank You!
+- **Feature Selection**: Identifying and selecting the most relevant features.
+- **Feature Extraction**: Creating new features from existing ones (e.g., using PCA).
+- **Curse of Dimensionality**: The phenomenon where the feature space becomes sparse as dimensions increase, making analysis harder.
+
+**Mathematical Intuition:**
+- Dimensionality reduction seeks to project data from a high-dimensional space to a lower-dimensional one, preserving as much information as possible.
+- Techniques like PCA find new axes (principal components) that capture the most variance in the data.
+
+## Types of Dimensionality Reduction
+
+- **Linear Methods**
+  - Principal Component Analysis (PCA) ([see details](principal_component_analysis/README.md))
+  - Linear Discriminant Analysis (LDA) ([see details](linear_discriminant_analysis/README.md))
+- **Non-linear Methods**
+  - Kernel PCA ([see details](kernel_pca/README.md))
+  - Isomap, t-SNE, etc.
+
+## Further Reading
+
+- [Dimensionality Reduction Techniques – GeeksforGeeks](https://www.geeksforgeeks.org/dimensionality-reduction-techniques/)

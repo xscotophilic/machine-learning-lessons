@@ -1,10 +1,27 @@
-.Rhistory
+# Root .gitignore for all projects
 
-# misc
+# System files
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.localIcon
 
-Icon
+# Environment files
+.env*
+
+# R files
+.Rhistory
+.RData
+
+# Python files
+venv/
+
+# Data folders
+data/
+*/data/
+
+# VSCode settings
+.vscode/
+
+# Miscellaneous
+*.log
+
+# Ignore hidden files from macOS
+Icon?

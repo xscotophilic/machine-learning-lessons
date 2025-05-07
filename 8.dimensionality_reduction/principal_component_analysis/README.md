@@ -1,27 +1,33 @@
 # Principal Component Analysis (PCA)
 
-> Principal component analysis (PCA) is the process of computing the principal components and using them to change the basis of the data, sometimes only using the first few principal components and ignoring the rest.
+> Principal Component Analysis (PCA) is a technique for reducing the dimensionality of datasets, increasing interpretability while minimizing information loss. It does so by computing principal components and using them to transform the data, often retaining only the most significant components.
 
-- When should I use PCA?
+## Table of Contents
 
-  - Do you want to reduce the number of variables but can't figure out which ones to eliminate completely?
-  - When you want to make certain that your variables are independent of one another.
+1. [Introduction](#principal-component-analysis-pca)
+2. [When to Use PCA](#when-to-use-pca)
+3. [How PCA Works](#how-pca-works)
+4. [Further Reading](#further-reading)
 
-- How does PCA work?
-  - We'll create a matrix that summarizes how our variables are related to one another.
-  - The matrix will then be divided into two parts: direction and magnitude. The screenshot from the setosa.io applet below shows the two main directions in this data: the "red direction" and the "green direction." The “red direction” is more important in this case.
-  - <img src="PCA0.png" width="600"/>
-    
-    Image source setosa.io
-  - To align with these critical directions, we will transform our original data.
-  - All the steps in details are given on: [Link 1](https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c)
+## When to Use PCA
 
-### You can read about Principal Component Analysis (PCA) in details on provided links:
+- When you want to reduce the number of variables but can't decide which ones to eliminate.
+- When you want to ensure your variables are independent of one another.
 
-- [A One-Stop Shop for Principal Component Analysis - on towardsdatascience](https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c)
-- [setosa.io](https://setosa.io/ev/principal-component-analysis/)
----
+## How PCA Works
 
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
+- PCA creates a matrix summarizing how variables are related.
+- The matrix is decomposed into direction and magnitude (principal components).
+- Example: The two main directions in the data are shown below ("red direction" is more important):
+  <img src="readme_assets/pca_principal_directions.png" width="600"/>
+  Image source: setosa.io
+- The original data is transformed to align with these principal directions.
 
-### Thank You!
+**Mathematical Intuition:**
+- PCA finds new axes (principal components) that maximize the variance in the data, subject to being orthogonal to each other.
+- The first principal component captures the most variance, the second the next most, and so on.
+- Mathematically, this is done by eigenvalue decomposition of the covariance matrix.
+
+## Further Reading
+- [A One-Stop Shop for Principal Component Analysis - Towards Data Science](https://towardsdatascience.com/a-one-stop-shop-for-principal-component-analysis-5582fb7e0a9c)
+- [setosa.io - Principal Component Analysis](https://setosa.io/ev/principal-component-analysis/)

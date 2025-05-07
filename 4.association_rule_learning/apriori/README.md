@@ -1,25 +1,32 @@
 # Apriori Algorithm
 
-### Apriori Property -> All non-empty subset of frequent itemset must be frequent.
+> **Apriori Property:** All non-empty subsets of a frequent itemset must also be frequent.
 
-- Apriori Algorithm
-1. Set a minimum support and confidence
-2. Take all the subsets in transactions having higher support than minimum support
-3. Take all the rules of these subsets having higher confidence than minimum confidence
-4. Generate the candidate set by joining the frequent itemset from the previous stage.
-5. Perform subset testing and prune the candidate set if there’s an infrequent itemset contained or does not satisfy minimum support.
-6. Repeat step 4 and 5 for given iterations.
+## Table of Contents
+- [Overview](#overview)
+- [Algorithm Steps](#algorithm-steps)
+- [Visualization](#visualization)
+- [Further Reading](#further-reading)
 
-<img src="Apriori0.png" />
+## Overview
+The Apriori algorithm is a classic algorithm used in data mining for learning association rules. It is especially useful for market basket analysis, where the goal is to find associations between items purchased together.
 
-### You can read about Apriori Algorithm in details on provided links: 
+## Algorithm Steps
+1. **Set minimum support and confidence.**
+2. **Find all itemsets in transactions** with support higher than the minimum support.
+3. **Generate association rules** from these itemsets with confidence higher than the minimum confidence.
+4. **Generate candidate itemsets** by joining frequent itemsets from the previous iteration.
+5. **Prune candidates** that contain infrequent subsets or do not satisfy minimum support.
+6. **Repeat** steps 4 and 5 until no further itemsets can be generated.
 
-- [Apriori: Association Rule Mining In-depth Explanation and Python Implementation (Ignore Implementation) - on towardsdatascience](https://towardsdatascience.com/apriori-association-rule-mining-explanation-and-python-implementation-290b42afdfc6)
+**Mathematical Intuition:**
+- Uses the Apriori property: all non-empty subsets of a frequent itemset must also be frequent.
+- Iteratively builds larger itemsets from smaller ones, pruning those that do not meet minimum support.
 
-- [Apriori Algorithm - on geeksforgeeks](https://www.geeksforgeeks.org/apriori-algorithm/)
+## Visualization
 
----
+![Apriori Algorithm Example](readme_assets/Apriori_algorithm_example.png)
 
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
-
-### Thank You!
+## Further Reading
+- [Apriori: Association Rule Mining In-depth Explanation and Python Implementation – Towards Data Science](https://towardsdatascience.com/apriori-association-rule-mining-explanation-and-python-implementation-290b42afdfc6)
+- [Apriori Algorithm – GeeksforGeeks](https://www.geeksforgeeks.org/apriori-algorithm/)

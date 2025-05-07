@@ -68,4 +68,9 @@ y_pred = predict(classifier, newdata = test_set[-692])
 # ---------------------------------------------------
 # Creating confusion metrix
 cm = table(test_set[, 692], y_pred)
+print("Confusion Matrix:")
+print(cm)
+
+# Calculate accuracy
 acc_score <- (cm["0", "0"]+cm["1", "1"])/(cm["0", "0"]+cm["0", "1"]+cm["1", "0"]+cm["1", "1"])
+cat(sprintf("\nAccuracy: %.2f%%\n", acc_score * 100))

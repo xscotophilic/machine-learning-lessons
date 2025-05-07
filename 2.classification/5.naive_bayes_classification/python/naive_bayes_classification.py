@@ -8,6 +8,7 @@ import pandas as pd
 
 # adding dataset
 dataset = pd.read_csv('data.csv')
+colors = ('red', 'green')
 
 # splitting a dataset into independent and dependent variables
 X = dataset.iloc[:, :-1].values
@@ -83,7 +84,7 @@ plt.contourf(X1, X2, classifier.predict(sc.transform(np.array([X1.ravel(), X2.ra
 plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
+    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], color=colors[i], label=j)
 plt.title('Naive Bayes (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
@@ -100,7 +101,7 @@ plt.contourf(X1, X2, classifier.predict(sc.transform(np.array([X1.ravel(), X2.ra
 plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
-    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
+    plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], color=colors[i], label=j)
 plt.title('Naive Bayes (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')

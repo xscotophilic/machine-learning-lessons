@@ -1,17 +1,28 @@
-# Solve Multiple Linear Regression
+# Multiple Linear Regression
 
-## Multiple linear regression attempts through fitting a linear equation to observations of data to represent the connection between two or more explanatory factors and a response variable. Each value is connected with a value in the independent variable x of the dependent variable y.
+## Table of Contents
+- [Overview](#overview)
+- [Model-Building Methods](#model-building-methods)
+- [Visual Formula](#visual-formula)
+- [Notes](#notes)
+
+## Overview
+Multiple linear regression fits a linear equation to observed data to model the relationship between two or more explanatory (independent) variables and a response (dependent) variable. Each observation consists of values for the independent variables \(x_1, x_2, \ldots, x_n\) and the dependent variable \(y\).
+
+## Model-Building Methods
+There are several approaches to building multiple linear regression models:
+
+1. **All-in**: Include all candidate variables in the model.
+2. **Backward Elimination**: Start with all variables, remove the least significant one at each step.
+3. **Forward Selection**: Start with no variables, add the most significant one at each step.
+4. **Bidirectional Elimination**: Combine forward selection and backward elimination.
+5. **Score Comparison**: Compare models using statistical metrics (e.g., AIC, BIC, adjusted R²).
+
+## Visual Formula
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/47301282/120228463-c3112480-c268-11eb-8245-0cb3b719fc5a.png" />
+  <img src="readme_assets/multiple_linear_regression_formula.png" alt="Multiple Linear Regression Formula"/>
 </p>
 
-- 5 methods of building models to solve Multiple Linear Regression:
-
-1. All-in
-2. Backward Elimination
-3. Forward Selection
-4. Bidirectional Elimination
-5. Score Comparison
-
-### sklearn/ library from R automatically chooses the optimal model and gives the result.
+## Notes
+- Libraries such as `scikit-learn` (Python) and `statsmodels` (Python) or `lm()` in R can automate model selection and fitting.

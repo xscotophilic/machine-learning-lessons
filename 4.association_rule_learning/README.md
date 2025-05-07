@@ -1,42 +1,53 @@
-# Association Rule Mining/ Learning
+# Association Rule Learning
 
-### Association rule mining uncovers intriguing associations and relationships between large sets of data items.
+> Association Rule Learning uncovers interesting relationships, patterns, and associations among sets of items in large datasets. It is widely used for market basket analysis and transactional data mining.
 
-- We can find rules that predict the occurrence of an object based on the occurrences of other items in the transaction given a collection of transactions.
+## Table of Contents
 
-- We can use Association Rules in any dataset where features take only two values i.e., 0 or 1.
-  - eg. Market Basket Analysis
-  - eg. People who buys X are likely to buy Y
+- [Overview](#overview)
+- [Key Terminologies](#key-terminologies)
+- [Popular Algorithms](#popular-algorithms)
+- [Example](#example)
+- [Further Reading](#further-reading)
 
-- Measures of Effectiveness of the Rule
-  - Support Count(sigma) = Frequency of occurrence of a itemset.
-  - Confidence = An itemset whose support is greater than or equal to minsup threshold.
-  - Lift is the ratio - Confidence is to Support
+## Overview
 
-- Support means how much historical data supports your rule and Confidence means how confident are we that the rule holds.
-  - For rule "A -> B" Support is the joint probability of A and B.
-  - For rule "A -> B" Confidence is the conditional probability of B given A.
+Association rule learning finds rules that predict the occurrence of an item based on the presence of other items in a transaction. It is especially useful when features are binary (e.g., purchased/not purchased).
 
-- If the lift is < 1 then A and B are negatively correlated else positively correlated and if it is equal to 1 it is not correlated.
+**Use Cases:**
+- Market basket analysis (retail)
+- Recommendation systems
+- Web usage mining
 
-<img src="ARM0.png" />
-- And by given data let’s assume we create association rule 
-```
-{Beer, Diaper} -> {Milk} 
-```
-- which means who buys milk and diaper he/she/they buys a beer. 
-Support Count(sigma) = Frequency of occurrence of a itemset.
-```
-support for given rule: 2/5
-confidence for given rule: 2/3
-```
-### You can read about Association Rule Mining/ Learning in details on provided links: 
+![Association Rule Mining Example](readme_assets/market_basket_example.png)
 
-* [Association Rule Mining - on towardsdatascience](https://towardsdatascience.com/association-rule-mining-be4122fc1793)
+## Key Terminologies
 
-* [Association Rule - on geeksforgeeks](https://www.geeksforgeeks.org/association-rule/)
----
+- **Support**: Frequency of occurrence of an itemset in the dataset.
+- **Confidence**: Likelihood that item Y is also bought when item X is bought (conditional probability).
+- **Lift**: Ratio of observed support to that expected if X and Y were independent. Indicates correlation.
 
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
+**Mathematical Intuition:**
+- The strength of a rule is measured by support, confidence, and lift:
+  - **Support:** $P(A \cap B)$, the probability both items occur together.
+  - **Confidence:** $P(B|A)$, the probability of B given A.
+  - **Lift:** $\frac{P(A \cap B)}{P(A)P(B)}$, measures how much more likely A and B occur together than if independent.
 
-### Thank You!
+## Popular Algorithms
+
+- **Apriori** ([see details](apriori/README.md))
+- **ECLAT** ([see details](eclat/README.md))
+
+## Example
+
+Given transactions, a rule like `{Beer, Diaper} -> {Milk}` means those who buy beer and diaper also tend to buy milk.
+
+- Support for the rule: 2/5
+- Confidence for the rule: 2/3
+
+If lift < 1: negative correlation; = 1: no correlation; > 1: positive correlation.
+
+## Further Reading
+
+- [Association Rule Mining - Towards Data Science](https://towardsdatascience.com/association-rule-mining-be4122fc1793)
+- [Association Rule - GeeksforGeeks](https://www.geeksforgeeks.org/association-rule/)

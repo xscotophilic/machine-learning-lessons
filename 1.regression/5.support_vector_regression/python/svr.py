@@ -41,10 +41,10 @@ y = sc_y.fit_transform(y)
 # RBF kernel = Radial basis function kernel
 from sklearn.svm import SVR
 regressor = SVR(kernel = 'rbf')
-regressor.fit(X, y)
+regressor.fit(X, y.ravel())
 
 X_pred = [[6.5]]
-y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(X_pred)))
+y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(X_pred)).reshape(-1, 1))
 
 # ---------------------------------------------------
 # Graph for SVR
@@ -52,7 +52,7 @@ y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(X_pred)))
 # GREEN DOTS REPRESENTS THE TRAIN SET ACTUAL VALUES
 # BLUE DOTS REPRESENTS THE REGRESSION LINE
 plt.scatter(sc_X.inverse_transform(X), sc_y.inverse_transform(y), color = 'green')
-plt.plot(sc_X.inverse_transform(X), sc_y.inverse_transform(regressor.predict(X)), color = 'blue')
+plt.plot(sc_X.inverse_transform(X), sc_y.inverse_transform(regressor.predict(X).reshape(-1, 1)), color = 'blue')
 plt.title('Position vs Salary (SVR)')
 plt.xlabel('Position Level')
 plt.ylabel('Salary')

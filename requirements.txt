@@ -1,0 +1,10 @@
+apyori
+keras_preprocessing
+matplotlib
+nltk
+numpy
+pandas
+scikit-learn
+statsmodels
+tensorflow
+xgboost

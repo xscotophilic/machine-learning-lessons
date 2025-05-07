@@ -1,42 +1,44 @@
-# Evaluating Regression Models Performance and Model Selection
+# Evaluating Regression Models: Performance & Model Selection
 
-### A) Evaluate Regression Models Performance
+> Evaluate, compare, and select regression models using standard metrics and practical templates.
 
-#### Some of the techniques to Evaluate Regression Models Performance
+## Table of Contents
+- [Overview](#overview)
+- [Performance Evaluation Metrics](#performance-evaluation-metrics)
+- [Model Selection](#model-selection)
+- [Example Output](#example-output)
+- [References & Further Reading](#references--further-reading)
 
-* Mean Absolute Error (MAE)
+## Overview
 
-* Root Mean Square Error (RMSE)
+This module provides guidance and code templates for evaluating regression model performance and selecting the best model for your data. It covers key metrics, practical usage in Python and R, and links to further resources.
 
-* R Squared
+## Performance Evaluation Metrics
 
-* Adjusted R Squared
+Common metrics for evaluating regression models include:
 
-##### You can read about it in details on : [Link one](https://openclassrooms.com/en/courses/6401081-improve-the-performance-of-a-machine-learning-model/6519016-evaluate-the-performance-of-a-regression-model) [Link two](https://analyticsindiamag.com/r-squared-vs-adjusted-r-squared/)
+- **Mean Absolute Error (MAE):** Average absolute difference between predicted and actual values. Intuitive and robust to outliers.
+- **Root Mean Square Error (RMSE):** Square root of the average squared differences. Penalizes larger errors more than MAE.
+- **R Squared ($R^2$):** Proportion of variance in the target explained by the model. Ranges from 0 (no fit) to 1 (perfect fit).
+- **Adjusted R Squared:** Like $R^2$, but adjusts for the number of predictors, discouraging overfitting.
 
----
-### B) Model Selection
+> **Tip:** Higher R² and Adjusted R² values generally indicate a better fit.
 
-#### 1. Model Selection in Python
+For detailed explanations, see:
+- [Evaluate the Performance of a Regression Model (OpenClassrooms)](https://openclassrooms.com/en/courses/6401081-improve-the-performance-of-a-machine-learning-model/6519016-evaluate-the-performance-of-a-regression-model)
+- [R Squared vs Adjusted R Squared (Analytics India Magazine)](https://analyticsindiamag.com/r-squared-vs-adjusted-r-squared/)
 
-* Here you can use code templates of different regression models provided in the "Model Selection in python" folder. To use these templates, the dependent variable has to be in the last column. Each model will give R Squared value and by using that you can evaluate your model. The greater the R Squared value better the model is.
+## Model Selection
 
-* You can use python (anaconda spyder recommended) to run .py scripts.
+**Mathematical Intuition:**
+- Evaluation metrics quantify how well a model's predictions match actual values, helping to compare and select models.
+- Metrics like MAE, RMSE, and $R^2$ capture different aspects of prediction error and model fit.
 
-* You can use Google Colab or Jupyter Notebook to run .ipynb scripts.
+## Example Output
 
-#### 2. Model Selection in R Language
+<img src="msr.png" alt="Model Summary Output" width="600" />
 
-* Here you can use my GitHub repositories of different regression models in R. To use these R scripts, You have to make some changes based on the ENTER_THE_NAME_OF_YOUR_DATASET_HERE.csv file you provide. Each model will give R Squared value and by using that you can evaluate your model. The greater the R Squared value better the model is.
+## References & Further Reading
 
-* You can see the summary by using regressor.sumarry() method in each R script. (Example shown below.)
-
-<img src="msr.png" />
-
-* You can use Rstudio to run .R scripts.
-
----
-
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
-
-### Thank You!
+- [Evaluate the Performance of a Regression Model (OpenClassrooms)](https://openclassrooms.com/en/courses/6401081-improve-the-performance-of-a-machine-learning-model/6519016-evaluate-the-performance-of-a-regression-model)
+- [R Squared vs Adjusted R Squared (Analytics India Magazine)](https://analyticsindiamag.com/r-squared-vs-adjusted-r-squared/)

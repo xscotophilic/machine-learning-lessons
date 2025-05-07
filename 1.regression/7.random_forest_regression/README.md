@@ -1,31 +1,45 @@
 # Random Forest Regression
 
-- As the name suggests, this algorithm creates the forest with a number of Decision trees.
+> Random Forest Regression is an ensemble learning method that builds multiple decision trees and merges their results for more accurate and stable predictions.
 
-- Ensemble Learning
+## Table of Contents
+- [Overview](#overview)
+- [How It Works](#how-it-works)
+- [Ensemble Learning](#ensemble-learning)
+- [Advantages](#advantages)
+- [References](#references)
 
-  - An ensemble approach is a strategy for making more accurate predictions by combining forecasts from various machine learning algorithms.
+## Overview
+Random Forest Regression creates a 'forest' of decision trees, each trained on a random subset of the data and features. The final prediction is the average of all tree predictions, which improves accuracy and reduces overfitting compared to a single decision tree.
 
-  - Types of Ensemble Learning:
+## How It Works
 
-  1. Boosting: Boosting is a set of algorithms that use weighted averages to turn weak students become good students. Each model that runs determines which features will be prioritised in the next model.
-
-  2. Bootstrap Aggregation (Bagging): Random sampling with replacement is referred to as bootstrap. With Bootstrap, we can better grasp the dataset's bias and variance. Bagging allows each model to run separately before aggregating the results at the end without giving any model a priority.
-
-- In general, the more trees in the forest the more robust the forest looks like. In the same way in the random forest regressor, the higher the number of trees in the forest gives the high the accuracy results.
+- Each tree is trained on a different bootstrap sample (random sample with replacement) of the data.
+- At each split in a tree, a random subset of features is considered.
+- Each tree makes its own prediction.
+- The predictions are averaged to produce the final result.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/47301282/120513082-86b90200-c3e9-11eb-997f-1bfaa11e6660.png" />
+  <img src="readme_assets/forest_diagram.png" alt="Random Forest Diagram" width="500" />
 </p>
 
-- Each tree is created from a different sample of rows and at each node, a different sample of features is selected for splitting.
+**Mathematical Intuition:**
+- Each tree is trained on a different random sample, and at each split, a random subset of features is considered.
+- The ensemble prediction is the mean of all tree outputs, reducing variance and improving generalization.
 
-- Each of the trees makes its own individual prediction.
+## Ensemble Learning
 
-- These predictions are then averaged to produce a single result.
+Ensemble learning combines predictions from multiple models to improve overall performance. There are two main types:
 
-- The averaging makes a Random Forest better than a single Decision Tree hence improves its accuracy and reduces overfitting.
+1. **Boosting**: Sequentially builds models, each focusing on the errors of the previous one. Example: AdaBoost, Gradient Boosting.
+2. **Bagging (Bootstrap Aggregation)**: Builds models independently using random samples of the data, then aggregates their predictions. Random Forest is a bagging method.
 
-- You can read about `Random Forest Regression` in details on provided links:
+## Advantages
+- Handles both regression and classification tasks.
+- Reduces overfitting compared to individual decision trees.
+- Can handle large datasets with higher dimensionality.
+- Provides feature importance estimates.
 
-  - [Random Forest Regression on medium.com](https://medium.com/swlh/random-forest-and-its-implementation-71824ced454f)
+## References
+- [Random Forest Regression on Medium](https://medium.com/swlh/random-forest-ac5227dabb08)
+- [Scikit-learn: Random Forest Regression](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)

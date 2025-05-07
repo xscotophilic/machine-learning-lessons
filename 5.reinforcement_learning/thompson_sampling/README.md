@@ -1,23 +1,34 @@
 # Thompson Sampling
 
-- If you don't know what Multi-Armed Bandit Problem is and what Upper Confidence Bound (UCB) is then you should read it in this repo, in Upper Confidence Bound (UCB) section.
+> **Thompson Sampling** (also known as Posterior Sampling or Probability Matching) is a powerful algorithm for solving the Multi-Armed Bandit problem by balancing exploration and exploitation to maximize cumulative rewards.
 
-- UCB selected its actions based on the current **"averages"** of the rewards received from those actions.
+## Table of Contents
+- [Overview](#overview)
+- [Algorithm Steps](#algorithm-steps)
+- [Visualization](#visualization)
+- [Further Reading](#further-reading)
 
-- Thompson Sampling is an algorithm that uses exploration and exploitation to maximize the total rewards obtained from performing an action. 
+## Overview
+Thompson Sampling is a Bayesian approach to the exploration-exploitation dilemma. It selects actions according to their probability of being optimal, based on observed rewards. This makes it highly effective for online decision-making problems such as ad placement, recommendation systems, and clinical trials.
 
-- Thompson Sampling is also known as Posterior Sampling and Probability Matching.
+- **Exploration:** Trying new actions to gather more information.
+- **Exploitation:** Choosing actions that have performed well in the past to maximize reward.
 
-- Exploration is when an action is repeated multiple times, and exploitation is when additional actions are performed with the goal of maximizing the reward based on the results of the previous actions, either rewards or penalties.
+## Algorithm Steps
+1. For each action, maintain a probability distribution (posterior) over its expected reward.
+2. At each round, sample a value from each action's posterior distribution.
+3. Select the action with the highest sampled value.
+4. Observe the reward and update the posterior for the selected action.
+5. Repeat for the desired number of rounds.
 
-- In other words, new options are investigated in order to maximize rewards while exploiting previously investigated options.
+**Mathematical Intuition:**
+- Maintains a probability distribution (posterior) for each action's reward, updating it as new data arrives.
+- Randomly samples from these distributions to decide which action to try, naturally balancing exploration and exploitation.
 
-### Algorithm:
+## Visualization
 
-<img src="TS0.png" width = "600px"/>
+![Thompson Sampling Algorithm Example](readme_assets/thompson_sampling_algorithm_example.png)
 
----
-
-### If you like my work, you can contribute to https://www.patreon.com/xscotophilic
-
-### Thank You!
+## Further Reading
+- [Thompson Sampling – Wikipedia](https://en.wikipedia.org/wiki/Thompson_sampling)
+- [A Tutorial on Thompson Sampling – Stanford](https://web.stanford.edu/~bvr/pubs/TS_Tutorial.pdf)
